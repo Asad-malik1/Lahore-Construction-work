@@ -478,25 +478,27 @@
       document.title = document.titleOrig;
     }
 
-    var elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li, a, span, button, strong, em, b, i, td, th, label, .eyebrow-plain, .rule, .lede, .badge");
+    var elements = document.querySelectorAll("[data-ur], [data-en], h1, h2, h3, h4, h5, h6, p, li, a, span, button, strong, em, b, i, td, th, label, div.hero-badge, div.g-title, div.g-desc, div.notice, .eyebrow-plain, .rule, .lede, .badge, .calc-cost-label");
 
     for (var i = 0; i < elements.length; i++) {
       var el = elements[i];
 
-      // CRITICAL FOR LINKS:
+            // 1. Direct bilingual attributes take highest priority
+      var dUr = el.getAttribute("data-ur");
+      var dEn = el.getAttribute("data-en");
+      if (dUr && dEn) {
+        if (dUr.indexOf("<") !== -1 || dEn.indexOf("<") !== -1) {
+          el.innerHTML = isUrdu ? dUr : dEn;
+        } else {
+          el.textContent = isUrdu ? dUr : dEn;
+        }
+        continue;
+      }
+
+      // 2. CRITICAL FOR LINKS:
       // Never set textContent on elements that contain child element tags (e.g. <li><a...>, <p><a...>)
       // Overwriting a container destroys the inner <a> links completely!
       if (el.children.length > 0) {
-        // If container specifically has data-ur with formatted HTML (and preserves/provides links)
-        var dUr = el.getAttribute("data-ur");
-        var dEn = el.getAttribute("data-en");
-        if (dUr && dEn && (dUr.indexOf("<") !== -1 || el.tagName === "P")) {
-          var hasLink = el.querySelector("a");
-          var urHasLink = dUr.indexOf("<a") !== -1;
-          if (!hasLink || urHasLink) {
-            el.innerHTML = isUrdu ? dUr : dEn;
-          }
-        }
         continue;
       }
 
@@ -554,6 +556,7 @@
     }
 
     translateDOM(isUrdu);
+    if (typeof calculateCost === "function") { try { calculateCost(); } catch(e){} }
 
     // Refresh cost calculator if present on page
     if (typeof window.calcCost === "function") {
