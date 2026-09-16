@@ -2056,3 +2056,19 @@ img {
   position: relative;
   z-index: 12;
 }
+
+
+/* Completely suppress Google Translate toolbar and banner */
+.goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, iframe[id=":1.container"], #goog-gt-tt, .goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+.skiptranslate {
+  display: none !important;
+}
