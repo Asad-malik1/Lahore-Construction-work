@@ -91,41 +91,46 @@
     }
   }
 
-  // Pure client DOM translation with preservation of original text
+  // Pure client DOM translation with preservation of original text & child links
   function translateDOM(isUrdu) {
-    var targets = document.querySelectorAll("h1, h2, h3, h4, h5, p, li, a, span, button, .eyebrow-plain, .rule, .lede");
-    for (var i = 0; i < targets.length; i++) {
-      var el = targets[i];
-      // Skip if contains deep child blocks
-      if (el.querySelector("p, ul, ol, div, section, article")) continue;
-
-      // 1. If explicit data-ur and data-en exist
+    // 1. Elements with explicit data-ur
+    var explicit = document.querySelectorAll("[data-ur]");
+    for (var i = 0; i < explicit.length; i++) {
+      var el = explicit[i];
       var dataUr = el.getAttribute("data-ur");
       var dataEn = el.getAttribute("data-en");
-      if (dataUr) {
-        if (!dataEn) {
-          dataEn = el.textContent.trim();
-          el.setAttribute("data-en", dataEn);
-        }
-        el.textContent = isUrdu ? dataUr : dataEn;
-        continue;
+      if (!dataEn) {
+        dataEn = el.textContent.trim();
+        el.setAttribute("data-en", dataEn);
       }
+      // Never wipe elements that contain interactive child tags
+      if (el.children.length === 0) {
+        el.textContent = isUrdu ? dataUr : dataEn;
+      }
+    }
 
-      // 2. Dictionary lookup
-      var text = el.textContent.trim().replace(/\s+/g, " ");
+    // 2. Leaf text elements for dictionary matching
+    var targets = document.querySelectorAll("h1, h2, h3, h4, h5, p, a, span, button, .eyebrow-plain, .rule, .lede");
+    for (var j = 0; j < targets.length; j++) {
+      var t = targets[j];
+      // CRITICAL: NEVER touch elements that contain child tags (e.g. <li> with <a>, <p> with <a>)
+      if (t.children.length > 0) continue;
+      if (t.hasAttribute("data-ur")) continue; // already handled
+
+      var text = t.textContent.trim().replace(/\s+/g, " ");
       if (!text) continue;
 
-      if (!el.hasAttribute("data-orig-text")) {
-        el.setAttribute("data-orig-text", text);
+      if (!t.hasAttribute("data-orig-text")) {
+        t.setAttribute("data-orig-text", text);
       }
 
-      var orig = el.getAttribute("data-orig-text");
+      var orig = t.getAttribute("data-orig-text");
       if (isUrdu) {
         if (DICTIONARY[orig]) {
-          el.textContent = DICTIONARY[orig];
+          t.textContent = DICTIONARY[orig];
         }
       } else {
-        el.textContent = orig;
+        t.textContent = orig;
       }
     }
   }
