@@ -598,7 +598,7 @@
       navLinks[i].addEventListener("click", closeNav);
     }
 
-    var lastScrollY = window.scrollY || window.pageYOffset;
+    var lastScrollY = 0;
     window.addEventListener("scroll", function() {
       var currentY = window.scrollY || window.pageYOffset;
       if (Math.abs(currentY - lastScrollY) > 15 && mainNav.classList.contains("open")) {
