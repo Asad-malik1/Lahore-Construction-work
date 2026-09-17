@@ -497,8 +497,10 @@ nav.main-nav a:hover {
 }
 
 .btn-solid {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-  box-shadow: 0 4px 14px rgba(224, 86, 56, 0.35);
+  background: #B83216;
+  background: linear-gradient(135deg, #B83216 0%, #9C240E 100%);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(184, 50, 22, 0.35);
 }
 
 .btn-solid:hover {
@@ -1522,8 +1524,8 @@ html, body {
 
 /* Additional Button Styles */
 .btn-solid {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #B83216 !important;
+  border-color: #9C240E !important;
   color: #ffffff !important;
 }
 
@@ -1845,9 +1847,9 @@ html, body {
 }
 
 .c-wa-btn {
-  background: #128C7E;
+  background: #0B5E54;
   color: #FFFFFF !important;
-  border: 1px solid #25D366;
+  border: 1px solid #148072;
 }
 
 .c-wa-btn:hover {
@@ -2157,5 +2159,13 @@ body {
 }
 [data-theme="dark"] .btn-lead, [data-theme="dark"] .btn-primary {
   background-color: #DC2626 !important;
+  color: #FFFFFF !important;
+}
+
+/* High-contrast overrides for Lighthouse 100/100 */
+.btn-solid, .btn-solid span {
+  color: #FFFFFF !important;
+}
+.c-wa-btn, .c-wa-btn span {
   color: #FFFFFF !important;
 }
