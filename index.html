@@ -7,10 +7,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Al-Rukan Builders Lahore | Professional House Construction &amp; Renovation Since 1984</title>
 <meta content="Build your dream home in Lahore with zero shortcuts. A-Grade materials, 60-grade steel, fixed pricing &amp; daily supervision. Cost calculator &amp; WhatsApp quotes." name="description"/>
-<link href="assets/style.css?v=20260917e" rel="stylesheet"/>
+<link href="assets/style.css?v=20260917f" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500;700&amp;family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500;700&amp;family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500;700&amp;family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500;700&amp;family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"/></noscript>
 <link href="https://lahore-construction.work.gd/" rel="canonical"/><meta content="website" property="og:type"/><meta content="Al-Rukan Builders Lahore" property="og:site_name"/><meta content="https://lahore-construction.work.gd/" property="og:url"/><meta content="Al-Rukan Builders Lahore | House Construction &amp; Renovation Since 1984" property="og:title"/><meta content="Build your dream home in Lahore with zero shortcuts. A-Grade materials, 60-grade steel, fixed pricing &amp; daily supervision." property="og:description"/><meta content="https://lahore-construction.work.gd/assets/images/completed-house-front.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Al-Rukan Builders Lahore | House Construction &amp; Renovation Since 1984" name="twitter:title"/><meta content="Build your dream home in Lahore with zero shortcuts. A-Grade materials, 60-grade steel, fixed pricing &amp; daily supervision." name="twitter:description"/><meta content="https://lahore-construction.work.gd/assets/images/completed-house-front.webp" name="twitter:image"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
@@ -55,7 +57,7 @@
 <header class="site-header">
 <div class="container nav-row">
 <div class="brand">
-<img alt="Al-Rukan Builders Logo" class="brand-logo" height="44" src="assets/images/logo.png" width="44"/>
+<img alt="Al-Rukan Builders Logo" class="brand-logo" height="44" src="assets/images/logo.png" width="44" fetchpriority="high"/>
 <div class="brand-text">
 <span class="big">AL-RUKAN BUILDERS</span>
 <span class="small" data-en="SERVING LAHORE SINCE 1984 • 40+ YEARS" data-ur="لاہور میں 1984 سے بااعتماد نام • 40+ سالہ تجربہ">SERVING LAHORE SINCE 1984 • 40+ YEARS</span>
@@ -349,16 +351,16 @@
 <p class="form-sub" data-en="We respond on WhatsApp as soon as possible." data-ur="ہم جلد از جلد واٹس ایپ پر رابطہ کریں گے۔">We respond on WhatsApp as soon as possible.</p>
 <form id="lead-form" onsubmit="handleLeadSubmit(event)">
 <div class="form-group">
-<label data-en="Your Full Name *" data-ur="آپ کا نام *">Your Full Name *</label>
-<input id="lead-name" placeholder="e.g. Tariq Mehmood" required="" type="text"/>
+<label for="lead-name" data-en="Your Full Name *" data-ur="آپ کا نام *">Your Full Name *</label>
+<input id="lead-name" name="lead-name" placeholder="e.g. Tariq Mehmood" required="" type="text"/>
 </div>
 <div class="form-group">
-<label data-en="Phone / WhatsApp Number *" data-ur="فون یا واٹس ایپ نمبر *">Phone / WhatsApp Number *</label>
-<input id="lead-phone" placeholder="e.g. 0300 1234567" required="" type="tel"/>
+<label for="lead-phone" data-en="Phone / WhatsApp Number *" data-ur="فون یا واٹس ایپ نمبر *">Phone / WhatsApp Number *</label>
+<input id="lead-phone" name="lead-phone" placeholder="e.g. 0300 1234567" required="" type="tel"/>
 </div>
 <div class="form-group">
-<label data-en="Plot Location in Lahore *" data-ur="لاہور میں پلاٹ کی لوکیشن *">Plot Location in Lahore *</label>
-<select id="lead-location" required="">
+<label for="lead-location" data-en="Plot Location in Lahore *" data-ur="لاہور میں پلاٹ کی لوکیشن *">Plot Location in Lahore *</label>
+<select id="lead-location" name="lead-location" aria-label="Plot Location in Lahore" required="">
 <option data-en="Select Area in Lahore" data-ur="لاہور کا علاقہ منتخب کریں" disabled="" selected="" value="">Select Area in Lahore</option>
 <option value="DHA Lahore">DHA Lahore (Phase 1-9)</option>
 <option value="Bahria Town / Bahria Orchard">Bahria Town / Bahria Orchard</option>
@@ -372,8 +374,8 @@
 </select>
 </div>
 <div class="form-group">
-<label data-en="Service Needed *" data-ur="مطلوبہ سروس *">Service Needed *</label>
-<select id="lead-service" required="">
+<label for="lead-service" data-en="Service Needed *" data-ur="مطلوبہ سروس *">Service Needed *</label>
+<select id="lead-service" name="lead-service" aria-label="Service Needed" required="">
 <option value="Complete House Construction (Turnkey)">Complete House Construction (Turnkey)</option>
 <option value="Gray Structure Construction">Gray Structure Construction</option>
 <option value="House Renovation / Remodeling">House Renovation / Remodeling</option>
@@ -547,7 +549,7 @@ function handleLeadSubmit(e) {
   window.open(`https://wa.me/923091401400?text=${text}`, '_blank');
 }
 
-// Mobile menu, Theme & Language toggles handled universally by assets/site.js?v=20260917e
+// Mobile menu, Theme & Language toggles handled universally by assets/site.js?v=20260917f
 
 // Expose calculateCost to window for site.js language switcher
 window.calculateCost = calculateCost;
@@ -555,6 +557,6 @@ window.calculateCost = calculateCost;
 // Initial cost run
 calculateCost();
 </script>
-<script src="assets/site.js?v=20260917e"></script>
+<script src="assets/site.js?v=20260917f"></script>
 </body>
 </html>
