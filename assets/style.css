@@ -2090,3 +2090,58 @@ body {
 .skiptranslate {
   display: none !important;
 }
+
+/* Accessibility & High Contrast overrides */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:root {
+  --accent: #C4381C;
+  --accent-hover: #A82E15;
+  --wa-green: #15803D;
+  --wa-dark: #166534;
+}
+
+[data-theme="dark"] {
+  --accent: #F97316;
+  --accent-hover: #EA580C;
+}
+
+[data-theme="dark"] .bad {
+  color: #F87171 !important;
+}
+
+[data-theme="dark"] .good {
+  color: #4ADE80 !important;
+}
+
+[data-theme="dark"] th.bad-col {
+  color: #FCA5A5 !important;
+}
+
+[data-theme="dark"] th.good-col {
+  color: #86EFAC !important;
+}
+
+[data-theme="dark"] .card-link {
+  color: #FB923C !important;
+}
+
+.pill-btn.active {
+  background: #B91C1C !important;
+  color: #FFFFFF !important;
+}
+
+.btn-wa, .nav-cta, .mobile-action-wa, .wa-float {
+  background: #15803D !important;
+  color: #FFFFFF !important;
+}
