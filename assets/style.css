@@ -2145,3 +2145,17 @@ body {
   background: #15803D !important;
   color: #FFFFFF !important;
 }
+
+/* High contrast button text and WhatsApp overrides */
+.btn-wa, .nav-cta, .mobile-action-wa, .wa-float {
+  background-color: #065F46 !important;
+  color: #FFFFFF !important;
+}
+.btn-lead, .btn-primary {
+  background-color: #991B1B !important;
+  color: #FFFFFF !important;
+}
+[data-theme="dark"] .btn-lead, [data-theme="dark"] .btn-primary {
+  background-color: #DC2626 !important;
+  color: #FFFFFF !important;
+}
